@@ -5,7 +5,7 @@
 
 # Cubism Core
 /Core/*
-!/Core/Please_copy_cubism_core_for_native
+!/Core/cubismSDKNative-setup.sh
 
 # Cocos2d-x Samples
 /Samples/Cocos2d-x/cocos2d/*
