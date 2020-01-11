@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Setup SDK and thirdParty libraries
+echo "Downloading Cubism SDK Native..."
+./Core/cubismSDKNative-setup.sh
+echo "Downloading GLFW & GLEW..."
+./Samples/OpenGL/thirdParty/setup.sh
+
+echo "Compiling Live2D sample project..."
+./Samples/OpenGL/Demo/proj.linux.cmake/make_gcc.sh
