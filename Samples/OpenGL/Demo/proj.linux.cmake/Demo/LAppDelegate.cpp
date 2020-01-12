@@ -66,7 +66,7 @@ bool LAppDelegate::Initialize()
     glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GLFW_TRUE);
     
     // Create undecorated window
-    glfwWindowHint(GLFW_DECORATED, GLFW_FALSE);    
+    glfwWindowHint(GLFW_DECORATED, GLFW_TRUE);    
     
     // Windowの生成_
     _window = glfwCreateWindow(RenderTargetWidth, RenderTargetHeight, "Live2D Widget", NULL, NULL);
@@ -81,7 +81,7 @@ bool LAppDelegate::Initialize()
     }
 
     // set Windows postion (hardcode for testing)
-    glfwSetWindowPos(_window, 1200, 1080);
+    glfwSetWindowPos(_window, 1500, 1080);
 
     // Windowのコンテキストをカレントに設定
     glfwMakeContextCurrent(_window);
