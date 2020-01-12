@@ -108,71 +108,71 @@ void LAppView::Render()
     Live2DManager->OnUpdate();
 
     // 各モデルが持つ描画ターゲットをテクスチャとする場合
-    if (_renderTarget == SelectTarget_ModelFrameBuffer && _renderSprite)
-    {
-        const GLfloat uvVertex[] =
-        {
-            1.0f, 1.0f,
-            0.0f, 1.0f,
-            0.0f, 0.0f,
-            1.0f, 0.0f,
-        };
+    // if (_renderTarget == SelectTarget_ModelFrameBuffer && _renderSprite)
+    // {
+    //     const GLfloat uvVertex[] =
+    //     {
+    //         1.0f, 1.0f,
+    //         0.0f, 1.0f,
+    //         0.0f, 0.0f,
+    //         1.0f, 0.0f,
+    //     };
 
-        for(csmUint32 i=0; i<Live2DManager->GetModelNum(); i++)
-        {
-            float alpha = GetSpriteAlpha(i); // サンプルとしてαに適当な差をつける
-            _renderSprite->SetColor(1.0f, 1.0f, 1.0f, alpha);
+    //     for(csmUint32 i=0; i<Live2DManager->GetModelNum(); i++)
+    //     {
+    //         float alpha = GetSpriteAlpha(i); // サンプルとしてαに適当な差をつける
+    //         _renderSprite->SetColor(1.0f, 1.0f, 1.0f, alpha);
 
-            LAppModel *model = Live2DManager->GetModel(i);
-            if (model)
-            {
-                _renderSprite->RenderImmidiate(model->GetRenderBuffer().GetColorBuffer(), uvVertex);
-            }
-        }
-    }
+    //         LAppModel *model = Live2DManager->GetModel(i);
+    //         if (model)
+    //         {
+    //             _renderSprite->RenderImmidiate(model->GetRenderBuffer().GetColorBuffer(), uvVertex);
+    //         }
+    //     }
+    // }
 }
 
 void LAppView::InitializeSprite()
 {
-    _programId = LAppDelegate::GetInstance()->CreateShader();
+    // _programId = LAppDelegate::GetInstance()->CreateShader();
 
-    int width, height;
-    glfwGetWindowSize(LAppDelegate::GetInstance()->GetWindow(), &width, &height);
+    // int width, height;
+    // glfwGetWindowSize(LAppDelegate::GetInstance()->GetWindow(), &width, &height);
 
-    LAppTextureManager* textureManager = LAppDelegate::GetInstance()->GetTextureManager();
-    const string resourcesPath = LAppDelegate::GetInstance()->GetRootDirectory() + ResourcesPath;
+    // LAppTextureManager* textureManager = LAppDelegate::GetInstance()->GetTextureManager();
+    // const string resourcesPath = LAppDelegate::GetInstance()->GetRootDirectory() + ResourcesPath;
 
-    string imageName = BackImageName;
-    LAppTextureManager::TextureInfo* backgroundTexture = textureManager->CreateTextureFromPngFile(resourcesPath + imageName);
+    // string imageName = BackImageName;
+    // LAppTextureManager::TextureInfo* backgroundTexture = textureManager->CreateTextureFromPngFile(resourcesPath + imageName);
 
-    float x = width * 0.5f;
-    float y = height * 0.5f;
-    float fWidth = static_cast<float>(backgroundTexture->width * 2.0f);
-    float fHeight = static_cast<float>(height) * 0.95f;
-    _back = new LAppSprite(x, y, fWidth, fHeight, backgroundTexture->id, _programId);
+    // float x = width * 0.5f;
+    // float y = height * 0.5f;
+    // float fWidth = static_cast<float>(backgroundTexture->width * 2.0f);
+    // float fHeight = static_cast<float>(height) * 0.95f;
+    // _back = new LAppSprite(x, y, fWidth, fHeight, backgroundTexture->id, _programId);
 
-    imageName = GearImageName;
-    LAppTextureManager::TextureInfo* gearTexture = textureManager->CreateTextureFromPngFile(resourcesPath + imageName);
+    // imageName = GearImageName;
+    // LAppTextureManager::TextureInfo* gearTexture = textureManager->CreateTextureFromPngFile(resourcesPath + imageName);
 
-    x = static_cast<float>(width - gearTexture->width * 0.5f);
-    y = static_cast<float>(height - gearTexture->height * 0.5f);
-    fWidth = static_cast<float>(gearTexture->width);
-    fHeight = static_cast<float>(gearTexture->height);
-    _gear = new LAppSprite(x, y, fWidth, fHeight, gearTexture->id, _programId);
+    // x = static_cast<float>(width - gearTexture->width * 0.5f);
+    // y = static_cast<float>(height - gearTexture->height * 0.5f);
+    // fWidth = static_cast<float>(gearTexture->width);
+    // fHeight = static_cast<float>(gearTexture->height);
+    // _gear = new LAppSprite(x, y, fWidth, fHeight, gearTexture->id, _programId);
 
-    imageName = PowerImageName;
-    LAppTextureManager::TextureInfo* powerTexture = textureManager->CreateTextureFromPngFile(resourcesPath + imageName);
+    // imageName = PowerImageName;
+    // LAppTextureManager::TextureInfo* powerTexture = textureManager->CreateTextureFromPngFile(resourcesPath + imageName);
 
-    x = static_cast<float>(width - powerTexture->width * 0.5f);
-    y = static_cast<float>(powerTexture->height * 0.5f);
-    fWidth = static_cast<float>(powerTexture->width);
-    fHeight = static_cast<float>(powerTexture->height);
-    _power = new LAppSprite(x, y, fWidth, fHeight, powerTexture->id, _programId);
+    // x = static_cast<float>(width - powerTexture->width * 0.5f);
+    // y = static_cast<float>(powerTexture->height * 0.5f);
+    // fWidth = static_cast<float>(powerTexture->width);
+    // fHeight = static_cast<float>(powerTexture->height);
+    // _power = new LAppSprite(x, y, fWidth, fHeight, powerTexture->id, _programId);
 
-    // 画面全体を覆うサイズ
-    x = width * 0.5f;
-    y = height * 0.5f;
-    _renderSprite = new LAppSprite(x, y, static_cast<float>(width), static_cast<float>(height), 0, _programId);
+    // // 画面全体を覆うサイズ
+    // x = width * 0.5f;
+    // y = height * 0.5f;
+    // _renderSprite = new LAppSprite(x, y, static_cast<float>(width), static_cast<float>(height), 0, _programId);
 
 }
 
@@ -276,32 +276,32 @@ void LAppView::PreModelDraw(LAppModel &refModel)
 void LAppView::PostModelDraw(LAppModel &refModel)
 {
     // 別のレンダリングターゲットへ向けて描画する場合の使用するフレームバッファ
-    Csm::Rendering::CubismOffscreenFrame_OpenGLES2* useTarget = NULL;
+    // Csm::Rendering::CubismOffscreenFrame_OpenGLES2* useTarget = NULL;
 
-    if (_renderTarget != SelectTarget_None)
-    {// 別のレンダリングターゲットへ向けて描画する場合
+    // if (_renderTarget != SelectTarget_None)
+    // {// 別のレンダリングターゲットへ向けて描画する場合
 
-        // 使用するターゲット
-        useTarget = (_renderTarget == SelectTarget_ViewFrameBuffer) ? &_renderBuffer : &refModel.GetRenderBuffer();
+    //     // 使用するターゲット
+    //     useTarget = (_renderTarget == SelectTarget_ViewFrameBuffer) ? &_renderBuffer : &refModel.GetRenderBuffer();
 
-        // レンダリング終了
-        useTarget->EndDraw();
+    //     // レンダリング終了
+    //     useTarget->EndDraw();
 
-        // LAppViewの持つフレームバッファを使うなら、スプライトへの描画はここ
-        if (_renderTarget == SelectTarget_ViewFrameBuffer && _renderSprite)
-        {
-            const GLfloat uvVertex[] =
-            {
-                1.0f, 1.0f,
-                0.0f, 1.0f,
-                0.0f, 0.0f,
-                1.0f, 0.0f,
-            };
+    //     // LAppViewの持つフレームバッファを使うなら、スプライトへの描画はここ
+    //     if (_renderTarget == SelectTarget_ViewFrameBuffer && _renderSprite)
+    //     {
+    //         const GLfloat uvVertex[] =
+    //         {
+    //             1.0f, 1.0f,
+    //             0.0f, 1.0f,
+    //             0.0f, 0.0f,
+    //             1.0f, 0.0f,
+    //         };
 
-            _renderSprite->SetColor(1.0f, 1.0f, 1.0f, GetSpriteAlpha(0));
-            _renderSprite->RenderImmidiate(useTarget->GetColorBuffer(), uvVertex);
-        }
-    }
+    //         _renderSprite->SetColor(1.0f, 1.0f, 1.0f, GetSpriteAlpha(0));
+    //         _renderSprite->RenderImmidiate(useTarget->GetColorBuffer(), uvVertex);
+    //     }
+    // }
 }
 
 void LAppView::SwitchRenderingTarget(SelectTarget targetType)
