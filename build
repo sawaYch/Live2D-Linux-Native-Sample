@@ -1,0 +1,2 @@
+#!/bin/bash
+./Samples/OpenGL/Demo/proj.linux.cmake/make_gcc.sh

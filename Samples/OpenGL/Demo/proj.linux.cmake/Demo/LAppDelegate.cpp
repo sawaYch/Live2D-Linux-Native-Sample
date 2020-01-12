@@ -61,9 +61,15 @@ bool LAppDelegate::Initialize()
         }
         return GL_FALSE;
     }
-
+    
+    // background transparent
+    glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GLFW_TRUE);
+    
+    // Create undecorated window
+    glfwWindowHint(GLFW_DECORATED, GLFW_FALSE);    
+    
     // Windowの生成_
-    _window = glfwCreateWindow(RenderTargetWidth, RenderTargetHeight, "SAMPLE", NULL, NULL);
+    _window = glfwCreateWindow(RenderTargetWidth, RenderTargetHeight, "Live2D Widget", NULL, NULL);
     if (_window == NULL)
     {
         if (DebugLogEnable)
@@ -73,6 +79,9 @@ bool LAppDelegate::Initialize()
         glfwTerminate();
         return GL_FALSE;
     }
+
+    // set Windows postion (hardcode for testing)
+    glfwSetWindowPos(_window, 1200, 1080);
 
     // Windowのコンテキストをカレントに設定
     glfwMakeContextCurrent(_window);
@@ -117,7 +126,7 @@ bool LAppDelegate::Initialize()
     LAppLive2DManager::GetInstance();
 
     //load sprite
-    _view->InitializeSprite();
+    // _view->InitializeSprite();
 
     return GL_TRUE;
 }
@@ -149,7 +158,7 @@ void LAppDelegate::Run()
         if((_windowWidth!=width || _windowHeight!=height) && width>0 && height>0)
         {
             _view->Initialize();
-            _view->ResizeSprite();
+            // _view->ResizeSprite(); // ignore it
 
             _windowWidth = width;
             _windowHeight = height;
@@ -159,7 +168,8 @@ void LAppDelegate::Run()
         LAppPal::UpdateTime();
 
         // 画面の初期化
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        // glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        glClearColor(0.0f, 0.0f, 0.0f, 0.0f); // update transparent background
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glClearDepth(1.0);
 

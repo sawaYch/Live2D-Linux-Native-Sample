@@ -96,9 +96,10 @@ void LAppView::Initialize()
 
 void LAppView::Render()
 {
-    _back->Render();
-    _gear->Render();
-    _power->Render();
+    // Disable those 3 button : testing
+    // _back->Render();
+    // _gear->Render();
+    // _power->Render();
 
 
     LAppLive2DManager* Live2DManager = LAppLive2DManager::GetInstance();
@@ -208,16 +209,16 @@ void LAppView::OnTouchesEnded(float px, float py) const
         live2DManager->OnTap(x, y);
 
         // 歯車にタップしたか
-        if (_gear->IsHit(px, py))
-        {
-            live2DManager->NextScene();
-        }
+        // if (_gear->IsHit(px, py))
+        // {
+        //     live2DManager->NextScene();
+        // }
 
-        // 電源ボタンにタップしたか
-        if (_power->IsHit(px, py))
-        {
-            LAppDelegate::GetInstance()->AppEnd();
-        }
+        // // 電源ボタンにタップしたか
+        // if (_power->IsHit(px, py))
+        // {
+        //     LAppDelegate::GetInstance()->AppEnd();
+        // }
     }
 }
 

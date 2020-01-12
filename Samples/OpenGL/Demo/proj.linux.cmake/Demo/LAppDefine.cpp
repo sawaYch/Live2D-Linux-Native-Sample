@@ -38,11 +38,11 @@ namespace LAppDefine {
     // モデルを配置したディレクトリ名の配列
     // ディレクトリ名とmodel3.jsonの名前を一致させておくこと
     const csmChar* ModelDir[] = {
-        "Haru",
+        // "Haru",
         "Hiyori",
-        "Mark",
-        "Natori",
-        "Rice"
+        // "Mark",
+        // "Natori",
+        // "Rice"
     };
     const csmInt32 ModelDirSize = sizeof(ModelDir) / sizeof(const csmChar*);
 
@@ -68,6 +68,8 @@ namespace LAppDefine {
     const CubismFramework::Option::LogLevel CubismLoggingLevel = CubismFramework::Option::LogLevel_Verbose;
 
     // デフォルトのレンダーターゲットサイズ
-    const csmInt32 RenderTargetWidth = 1900;
-    const csmInt32 RenderTargetHeight = 1000;
+    // const csmInt32 RenderTargetWidth = 1900;
+    // const csmInt32 RenderTargetHeight = 1000;
+    const csmInt32 RenderTargetWidth = 1000;
+    const csmInt32 RenderTargetHeight = 500;
 }
