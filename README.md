@@ -36,12 +36,11 @@ You need to uninstall and install `Version 3.16` .
 | **Live 2D Native cubism 3 OpenGL** | **19.3%**             | **26.1 MiB** |
 | Electron Live2D cubism 2           | 29.1%                 | 73.7 MiB     |
 
-Electron Live2D cubism 2 program here use [PPet](https://github.com/zenghongtu/PPet) as example.   
+\*The CPU usage is the sum of the usage of each cores.   
 
-The CPU usage is the sum of the usage of each cores.   
-
-Electron Live2D Cubism 2 is much more CPU & MEM costly,   
-it is not only about the program it-self, but include electron runtime (V8-engine) and a web server for backend API. 
+Electron Live2D cubism 2 program here use [PPet](https://github.com/zenghongtu/PPet) as example.  
+Electron version require V8 runtime, web-sevber for backend API.   
+Since these two are different models/ codebase, they cannot be compared directly, so just for reference.   
 
 
 
@@ -65,5 +64,5 @@ it is not only about the program it-self, but include electron runtime (V8-engin
 
 ## Know More...
 
-Cubism 2 Desktop Widget with Electron - PPet
+Cubism 2 Desktop Widget with Electron - PPet   
 https://github.com/zenghongtu/PPet @ [zenghongtu](https://github.com/zenghongtu)
